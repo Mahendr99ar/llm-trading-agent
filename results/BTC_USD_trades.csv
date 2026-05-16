@@ -1,0 +1,2 @@
+date,entry_price,exit_price,return_pct,profitable,exit_reason
+2026-04-23,71123.359375,78268.953125,10.05,True,TAKE_PROFIT

@@ -1,0 +1,3 @@
+date,entry_price,exit_price,return_pct,profitable,exit_reason
+2026-04-29,2241.806640625,2253.415771484375,0.52,True,SELL
+2026-05-13,2306.97216796875,2257.576416015625,-2.14,False,SELL
