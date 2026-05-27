@@ -1,4 +1,4 @@
-# LLM Trading Agent 🤖📈
+# LLM Trading Agent 📈
 
 > WorldQuant BRAIN-style alpha research + LLM-powered trading decisions
 
