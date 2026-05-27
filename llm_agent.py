@@ -9,8 +9,11 @@ Uses Anthropic Claude API (same model you're chatting with!)
 """
 
 import json
+import os
 import requests
 from dataclasses import dataclass
+
+ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
 
 @dataclass
@@ -79,9 +82,17 @@ Rules:
 """
 
     try:
+        if not ANTHROPIC_API_KEY:
+            print("[Agent] ANTHROPIC_API_KEY not set — using rule-based fallback")
+            return _fallback_decision(tech_signal, sentiment_label)
+
         response = requests.post(
             "https://api.anthropic.com/v1/messages",
-            headers={"Content-Type": "application/json"},
+            headers={
+                "Content-Type": "application/json",
+                "x-api-key": ANTHROPIC_API_KEY,
+                "anthropic-version": "2023-06-01",
+            },
             json={
                 "model": "claude-sonnet-4-20250514",
                 "max_tokens": 300,
